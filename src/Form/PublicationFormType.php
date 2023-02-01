@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Categories;
 use App\Entity\Publications;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -20,6 +22,12 @@ class PublicationFormType extends AbstractType
             ])
             ->add('contenue', TextType::class, [
                 'label' => 'Contenue de l\'article'
+            ])
+            ->add('category', EntityType::class, [
+                'class' => Categories::class,
+                'choice_label' => 'name',
+                'mapped' => false,
+                'label' => 'Categorie'
             ])
             ->add('img_couverture', FileType::class, [
                 'label' => 'image',

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategoryController!
+{% endblock %}
+
+{% block body %}
+	<div class="main_cat_ctn">
+		<div class="form_cat_ctn">
+			<h2>Ajouter une catégorie :
+			</h2>
+			{{ form_start(formcat) }}
+			<p>Nom de la catégorie :</p>
+			<p>{{ form_row(formcat.name) }}</p>
+			{{ form_row(formcat.submit) }}
+			{{ form_end(formcat) }}
+		</div>
+
+		<div class="form_cat_ctn">
+			<h2>Liste des catégorie :</h2>
+			<div class="category_card">
+				{% for categ in categorie %}
+					<p>{{ categ.name }}</p>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

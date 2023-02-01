@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PublicationsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -29,6 +31,10 @@ class Publications
     #[ORM\ManyToOne(inversedBy: 'publications')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
+
+    public function __construct()
+    {
+    }
 
     public function getId(): ?int
     {
@@ -96,5 +102,10 @@ class Publications
         $this->user = $user;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->title;
     }
 }

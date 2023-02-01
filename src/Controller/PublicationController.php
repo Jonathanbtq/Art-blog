@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Categories;
 use DateTimeImmutable;
 use App\Entity\Publications;
 use App\Form\PublicationFormType;
+use App\Repository\CategoriesRepository;
 use App\Repository\PublicationsRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -33,7 +35,7 @@ class PublicationController extends AbstractController
     }
 
     #[Route('/createpubli', name: 'createpubli')]
-    public function create(PublicationsRepository $publicRepo, Request $request, #[Autowire('%photo_dir%')] string $photoDir,): Response
+    public function create(PublicationsRepository $publicRepo, Request $request, #[Autowire('%photo_dir%')] string $photoDir, CategoriesRepository $catRepo): Response
     {
         $publication = new Publications();
         $form = $this->createForm(PublicationFormType::class, $publication);

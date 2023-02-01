@@ -1,0 +1,20 @@
+.main_cat_ctn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.form_cat_ctn {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+
+.form_cat_ctn h2 {
+    color: white;
+}
+
+.form_cat_ctn p {
+    color: white;
+}
