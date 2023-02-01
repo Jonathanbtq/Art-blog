@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="{{ asset('assets/nav.css')}}">
+<div class="nav_main_ctn">
+	<div class="nav_h">
+		<h1>
+			<a href="{{ path('main')}}">Art'Blog</a>
+		</h1>
+	</div>
+
+	<div class="nav_options">
+		{% if app.user %}
+			<a class="a_frt" href="{{ path('users_profile', { id: app.user.id } ) }}">Profile</a>
+			<a href="{{ path('app_logout') }}">Deconnexion</a>
+		{% else %}
+			<a href="{{ path('register') }}">S'inscrire</a>
+			<a href="{{ path('app_login') }}">Se connecter</a>
+		{% endif %}
+	</div>
+
+</div>

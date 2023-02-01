@@ -1,0 +1,22 @@
+.container_idx_main {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.publication_contenue {
+    display: flex;
+    width: 30%;
+    margin: 0 10px 10px 0;
+}
+
+.publication_contenue_card {
+    display: flex;
+    width: 100%;
+}
+
+.idx_img {
+    width: 100%;
+}

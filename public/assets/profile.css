@@ -1,0 +1,59 @@
+.main_ctn_profile {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    min-height: 15vw;
+}
+
+.img-ctn {
+    display: flex;
+    width: 15%;
+    padding: 0;
+}
+
+.profile_img_user {
+    display: flex;
+    width: 10vw;
+    height: 10vw;
+    margin-left: 30px;
+    margin-right: 10px;
+}
+
+.card_user_profile {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
+.card_user_profile p {
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+
+.publi_ctn {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+}
+
+.card_public {
+    display: flex;
+    flex-direction: column;
+    width: 23%;
+    margin: 10px 10px 10px 0;
+}
+
+.card_public img {
+    height: 70%;
+}
+
+.card_public h3 {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.card_public p {
+    margin: 0;
+}

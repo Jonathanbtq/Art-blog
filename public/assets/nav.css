@@ -1,0 +1,33 @@
+.nav_main_ctn {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    width: 100%;
+    border-bottom: 1px rgba(182, 176, 176, 0.504) solid;
+}
+
+.nav_h {
+    display: flex;
+    width: 50%;
+}
+
+.nav_h a {
+    font-size: 35px;
+    color: white;
+    text-decoration: none;
+}
+
+.nav_options {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    width: 25%;
+}
+
+.nav_options a {
+    margin-left: 10px;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+}

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil
+{% endblock %}
+
+{% block body %}
+	{% if app.user %}
+		<H3>bienvenue
+			{{ app.user.username }}</h3>
+	{% endif %}
+	<div class="container_idx_main">
+		{% for publication in publications %}
+			<a class="publication_contenue" href="{{ path('viewpublication', { id: publication.id }) }}">
+				<div class="publication_contenue_card">
+					<img class="idx_img mb-3 me-2" src="/uploads/photos/{{ publication.getImgCouverture }}">
+				</div>
+			</a>
+		{% endfor %}
+	</div>
+{% endblock %}

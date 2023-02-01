@@ -1,0 +1,45 @@
+html,
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+}
+
+.button_frt {
+    border: 1px solid rgb(63, 205, 63);
+    border-radius: 5px;
+    background-color: rgb(16, 16, 74);
+    color: white;
+    max-width: 10vw;
+    max-height: 8vw;
+    text-transform: uppercase;
+}
+
+.a_frt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 15px;
+    border: 1px solid rgb(63, 205, 63);
+    border-radius: 5px;
+    background-color: rgb(16, 16, 74);
+    color: rgb(221, 218, 218);
+    width: 15vw;
+    height: 3vw;
+    text-transform: uppercase;
+}
+
+.a_frt:hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 14px;
+    border: 1px solid rgb(63, 205, 63);
+    border-radius: 5px;
+    background-color: rgb(22, 22, 88);
+    color: rgb(221, 218, 218);
+    width: 15vw;
+    height: 3vw;
+    text-transform: uppercase;
+}

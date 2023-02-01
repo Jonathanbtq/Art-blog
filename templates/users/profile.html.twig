@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page de profile
+{% endblock %}
+
+{% block body %}
+	<div class="main_ctn_profile">
+		<div class="img-ctn">
+			{% if app.user.getProfileImg %}
+				<img class="profile_img_user" src="/uploads/photos/{{ app.user.getProfileImg }}">
+			{% else %}
+				<p>Ce compte n'a pas de photo</p>
+			{% endif %}
+		</div>
+		<div class="card_user_profile">
+			<p>{{ app.user.username }}</p>
+			<p>{{ app.user.id }}</p>
+		</div>
+	</div>
+	<div class="">
+		<a class="a_frt" href="{{ path('createpubli') }}">
+			Creer une publication
+		</a>
+	</div>
+	<div class="publi_ctn">
+		{% for publi in publications %}
+			<div class="card_public bg-light">
+				<img src="/uploads/photos/{{ publi.getImgCouverture }}"/>
+				<h3>{{ publi.title}}</h3>
+				<p>{{ publi.contenue }}</p>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}
