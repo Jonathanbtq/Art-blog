@@ -42,6 +42,8 @@ class PublicationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $cat = $form->get('category')->getData();
+            $publication->addCategory($cat);
             $publication->setUser($this->getUser());
             $publication->setCreatedAt(new DateTimeImmutable());
             if ($photo = $form['img_couverture']->getData()) {

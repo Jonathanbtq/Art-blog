@@ -18,8 +18,12 @@ class Categories
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
+    #[ORM\ManyToMany(targetEntity: Publications::class, mappedBy: 'categories')]
+    private Collection $publications;
+
     public function __construct()
     {
+        $this->publications = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -42,5 +46,32 @@ class Categories
     public function __toString()
     {
         return $this->name;
+    }
+
+    /**
+     * @return Collection<int, Publications>
+     */
+    public function getPublications(): Collection
+    {
+        return $this->publications;
+    }
+
+    public function addPublication(Publications $publication): self
+    {
+        if (!$this->publications->contains($publication)) {
+            $this->publications->add($publication);
+            $publication->addCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removePublication(Publications $publication): self
+    {
+        if ($this->publications->removeElement($publication)) {
+            $publication->removeCategory($this);
+        }
+
+        return $this;
     }
 }

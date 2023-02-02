@@ -32,8 +32,12 @@ class Publications
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
+    #[ORM\ManyToMany(targetEntity: Categories::class, inversedBy: 'publications')]
+    private Collection $categories;
+
     public function __construct()
     {
+        $this->categories = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -107,5 +111,29 @@ class Publications
     public function __toString()
     {
         return $this->title;
+    }
+
+    /**
+     * @return Collection<int, Categories>
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategory(Categories $category): self
+    {
+        if (!$this->categories->contains($category)) {
+            $this->categories->add($category);
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(Categories $category): self
+    {
+        $this->categories->removeElement($category);
+
+        return $this;
     }
 }
