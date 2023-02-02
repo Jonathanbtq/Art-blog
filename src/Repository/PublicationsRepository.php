@@ -38,7 +38,7 @@ class PublicationsRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
-
+    
 //    /**
 //     * @return Publications[] Returns an array of Publications objects
 //     */

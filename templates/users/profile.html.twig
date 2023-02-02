@@ -28,7 +28,11 @@
 				<img src="/uploads/photos/{{ publi.getImgCouverture }}"/>
 				<h3>{{ publi.title}}</h3>
 				<p>{{ publi.contenue }}</p>
+				{% for pub in publications[0].categories %}
+					<p class="p_card_profile">#{{ pub.name}}<p>
+				{% endfor %}
 			</div>
 		{% endfor %}
+		
 	</div>
 {% endblock %}
