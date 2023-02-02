@@ -32,6 +32,26 @@
     color: white;
 }
 
+.nav_profile_ctn{
+    display: flex;
+    width: 100%;
+    background-color: rgb(71, 67, 67);
+    margin-bottom: 10px;
+}
+
+.nav_profile_ctn ul{
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.nav_li_profile{
+    display: flex;
+    margin-right: 8vw;
+    color: rgb(163, 162, 162);
+    font-weight: bold;
+    cursor: pointer;
+}
 .publi_ctn {
     display: flex;
     flex-wrap: wrap;

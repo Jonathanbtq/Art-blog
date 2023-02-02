@@ -14,8 +14,19 @@
 		</div>
 		<div class="card_user_profile">
 			<p>{{ app.user.username }}</p>
-			<p>{{ app.user.id }}</p>
+			<div>
+				<p>{{ publiNb }} Deviations</p>
+			</div>
 		</div>
+	</div>
+	<div class="nav_profile_ctn">
+		<ul>
+			<li class="nav_li_profile">Home</li>
+			<li class="nav_li_profile">Gallery</li>
+			<li class="nav_li_profile">Favourites</li>
+			<li class="nav_li_profile">Posts</li>
+			<li class="nav_li_profile">About</li>
+		</ul>
 	</div>
 	<div class="">
 		<a class="a_frt" href="{{ path('createpubli') }}">

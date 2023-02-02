@@ -28,9 +28,10 @@ class PublicationController extends AbstractController
     #[Route('/publication/{id}', name: 'viewpublication')]
     public function show($id, PublicationsRepository $publicRepo): Response
     {
+        
         return $this->render('publication/show.html.twig', [
             'controller_name' => 'PublicationController',
-            'publications' => $publicRepo->findAll($id)
+            'publications' => $publicRepo->findAll($id),
         ]);
     }
 
