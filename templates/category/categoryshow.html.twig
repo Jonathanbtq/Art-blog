@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategoryController!
+{% endblock %}
+
+{% block body %}
+    <script src="{{ asset('assets/js/categorymain.js') }}" defer></script>
+	<div class="container_catgegory_ctn">
+        <div class="category_main">
+            <div class="h1_categ_ctn">
+                <p>Explore</p>
+                <h1>{{ category[0].name }}</h1>
+            </div>
+            <div class="main_cat_container">
+                {% for categ in category[0].getPublications %}
+                    <div class="cat_crd_wth">
+                        <div class="categpubli_ctn_main" onmouseover="openText(this)" onmouseleave="hideText(this)">
+                            <img src="/uploads/photos/{{ categ.getImgCouverture }}"/>
+                            <div class="card_publi_abs_hiding">
+                                <h2>{{ categ.title }}</h2>
+                                <p class="contenu_card_publi" onClick="hideDesc(this)">{{ categ.contenue }}...</p>
+                                <p>Date de mise en ligne : {{ categ.createdAt|date("d-m-Y") }}</p>
+                                <a href="">{{ categ.user.username }}</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

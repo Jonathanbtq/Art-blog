@@ -3,6 +3,7 @@
     flex-wrap: nowrap;
     align-items: center;
     min-height: 15vw;
+    padding-top: 80px;
 }
 
 .img-ctn {
@@ -55,19 +56,47 @@
 .publi_ctn {
     display: flex;
     flex-wrap: wrap;
-    width: 90%;
 }
 
-.card_public {
+.card_prof_wtd{
     display: flex;
     flex-direction: column;
-    width: 23%;
-    max-height: 20vw;
-    margin: 10px 10px 10px 0;
+    height: 15vw;
+    padding-right: 5px;
 }
 
-.card_public img {
-    height: 70%;
+.profile_ctn_main{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: 100%;
+    padding-right: 5px;
+}
+
+.profile_ctn_main img{
+    height: 100%;
+}
+
+.profile_info_card{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    margin: 0 10px 0 10px;
+    bottom: 0;
+    height: auto;
+    color: white;
+}
+
+.profile_info_card p{
+    height: 20px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.profile_info_card a{
+    color: white;
+    text-decoration: none;
+    width: 5vw;
 }
 
 .card_public h3 {
@@ -82,10 +111,15 @@
     color: white;
 }
 
+.card_public a{
+    text-decoration: none;
+}
+
 .p_card_profile{
     display: flex;
     justify-content: center;
     background-color: rgb(39, 33, 33);
     border-radius: 5px;
-    width: 20%;
+    padding-bottom: 5px;
+    width: 100%;
 }

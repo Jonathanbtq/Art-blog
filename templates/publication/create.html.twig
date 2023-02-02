@@ -4,10 +4,27 @@
 {% endblock %}
 
 {% block body %}
-	{{ form_start(form_publi) }}
-	{{ form_row(form_publi.title) }}
-	{{ form_row(form_publi.contenue) }}
-	{{ form_row(form_publi.category) }}
-	{{ form_row(form_publi.img_couverture) }}
-	{{ form_end(form_publi) }}
+	<div class="main_create_publi">
+		<div class="form_crt_plb">
+			{{ form_start(form_publi) }}
+			<div class="create_pun_title">
+				<label>Titre</label>
+				{{ form_row(form_publi.title) }}
+			</div>
+			<div class="create_pun_title">
+				<label>Contenue</label>
+				{{ form_row(form_publi.contenue) }}
+			</div>
+			<div class="create_pun_title">
+				<label>Category</label>
+				{{ form_row(form_publi.category) }}
+			</div>
+			<div class="create_pun_title">
+				<label>Image de couverture</label>
+				{{ form_row(form_publi.img_couverture) }}
+			</div>
+			{{ form_end(form_publi) }}
+		</div>
+		
+	</div>
 {% endblock %}

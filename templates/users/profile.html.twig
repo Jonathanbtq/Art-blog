@@ -4,6 +4,7 @@
 {% endblock %}
 
 {% block body %}
+	<script src="{{ asset('assets/js/profile.js') }}" defer></script>
 	<div class="main_ctn_profile">
 		<div class="img-ctn">
 			{% if app.user.getProfileImg %}
@@ -35,13 +36,17 @@
 	</div>
 	<div class="publi_ctn">
 		{% for publi in publications %}
-			<div class="card_public bg-light">
-				<img src="/uploads/photos/{{ publi.getImgCouverture }}"/>
-				<h3>{{ publi.title}}</h3>
-				<p>{{ publi.contenue }}</p>
-				{% for pub in publications[0].categories %}
-					<p class="p_card_profile">#{{ pub.name}}<p>
-				{% endfor %}
+			<div class="card_prof_wtd">
+				<div class="profile_ctn_main">
+					<img src="/uploads/photos/{{ publi.getImgCouverture }}"/>
+					<div class="profile_info_card" onClick="hideSize(this)">
+						<h3>{{ publi.title}}</h3>
+						<p>{{ publi.contenue }}...</p>
+						{% for pub in publi.categories %}
+							<a href="{{ path('category', { name: pub.name }) }}" class="p_card_profile">#{{ pub.name}}</a>
+						{% endfor %}
+					</div>
+				</div>
 			</div>
 		{% endfor %}
 		

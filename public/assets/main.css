@@ -1,9 +1,9 @@
 .container_idx_main {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 100px;
     width: 100%;
     padding: 0;
-    margin: 0;
 }
 
 .publication_contenue {

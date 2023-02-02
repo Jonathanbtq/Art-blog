@@ -1,0 +1,114 @@
+.container_catgegory_ctn{
+    display: flex;
+    width: 100%;
+}
+
+.category_main{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 1100px;
+}
+
+.h1_categ_ctn{
+    display: flex;
+    align-items: center;
+    position:fixed;
+    z-index: 1;
+    width: 100%;
+    height: 3vw;
+    padding-top: 3vw;
+    background-color: rgba(46, 41, 41, 0.685);
+}
+
+.h1_categ_ctn h1{
+    font-size: 30px;
+    color: rgb(224, 220, 220);
+    text-align: center;
+    margin: 0 0 0 20px;
+}
+
+.h1_categ_ctn p{
+    font-size: 30px;
+    color: rgb(224, 220, 220);
+    text-align: center;
+    margin: 0;
+    margin: 0 10px 0 50px;
+}
+
+.category_main h1{
+    color: white;
+    font-weight: bold;
+}
+
+.main_cat_container{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 120px;
+    padding-top: 100px;
+}
+
+.cat_crd_wth{
+    display: flex;
+    height: 15vw;
+}
+
+.categpubli_ctn_main{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+    padding-right: 5px;
+}
+
+.categpubli_ctn_main img{
+    height: 100%;
+}
+
+.card_publi_abs{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin: 10px;
+    top: 100px;
+}
+
+.card_publi_abs_hiding{
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    margin: 10px;
+}
+
+.card_publi_abs h2{
+    color: white;
+    font-size: 25px;
+    padding: 0;
+    margin: 0;
+}
+
+.card_publi_abs p{
+    color: white;
+    margin: 0;
+}
+
+.contenu_card_publi{
+    height: 2vw;
+    overflow: hidden;
+    cursor: pointer;
+    padding-top: 10px;
+}
+
+.contenu_card_publi_open{
+    min-height: 2vw;
+    cursor: pointer;
+    padding-top: 10px;
+}
+
+.card_publi_abs a{
+    color: rgb(214, 208, 208);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+}
