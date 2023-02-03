@@ -82,6 +82,7 @@
     flex-wrap: nowrap;
     overflow: scroll;
     width: 90%;
+    -ms-overflow-style: none;
 }
 
 .profile_lrg::-webkit-scrollbar {

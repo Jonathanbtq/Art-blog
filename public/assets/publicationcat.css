@@ -70,7 +70,7 @@
     flex-direction: column;
     position: absolute;
     margin: 10px;
-    top: 100px;
+    bottom: 0;
 }
 
 .card_publi_abs_hiding{

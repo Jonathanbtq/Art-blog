@@ -17,7 +17,7 @@ class UsersController extends AbstractController
         $publi = count($publiRepo->findAll($id));
         return $this->render('users/profile.html.twig', [
             'users' => $usersRepo->findAll($id),
-            'publications' => $publiRepo->findBy(['user' => $this->getUser()], ['id' => 'ASC'], 5),
+            'publications' => $publiRepo->findBy(['user' => $this->getUser()], ['id' => 'DESC'], 5),
             'publiNb' => $publi
         ]);
     }
