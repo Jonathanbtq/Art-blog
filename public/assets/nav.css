@@ -1,8 +1,13 @@
-nav{
-    position:fixed;
+nav {
+    position: fixed;
     z-index: 2;
     height: 3vw;
     background-color: black;
+}
+
+.logo_nav {
+    width: 4vw;
+    margin-right: 5px;
 }
 
 .nav_main_ctn {
@@ -19,7 +24,7 @@ nav{
     width: 65%;
 }
 
-.nav_h h1{
+.nav_h h1 {
     margin: 0;
 }
 

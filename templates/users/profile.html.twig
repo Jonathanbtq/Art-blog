@@ -14,9 +14,11 @@
 			{% endif %}
 		</div>
 		<div class="card_user_profile">
-			<p>{{ app.user.username }}</p>
-			<div>
-				<p>{{ publiNb }} Deviations</p>
+			<p class="username_profile">{{ app.user.username }}</p>
+			<div style="display: flex; flex-wrap: no-wrap;">
+				<p>{{ publiNb }}
+					Deviations |</p>
+				<p>0 Favorites</p>
 			</div>
 		</div>
 	</div>
@@ -29,26 +31,30 @@
 			<li class="nav_li_profile">About</li>
 		</ul>
 	</div>
-	<div class="">
-		<a class="a_frt" href="{{ path('createpubli') }}">
-			Creer une publication
-		</a>
+	<div class="a_prof_cret">
+		<div class="a_prof_bis">
+			<a class="a_frt" href="{{ path('createpubli') }}">
+				Submit
+			</a>
+		</div>
 	</div>
+
 	<div class="publi_ctn">
-		{% for publi in publications %}
-			<div class="card_prof_wtd">
-				<div class="profile_ctn_main">
-					<img src="/uploads/photos/{{ publi.getImgCouverture }}"/>
-					<div class="profile_info_card" onClick="hideSize(this)">
-						<h3>{{ publi.title}}</h3>
-						<p>{{ publi.contenue }}...</p>
-						{% for pub in publi.categories %}
-							<a href="{{ path('category', { name: pub.name }) }}" class="p_card_profile">#{{ pub.name}}</a>
-						{% endfor %}
+		<div class="profile_lrg">
+			{% for publi in publications %}
+				<div class="card_prof_wtd">
+					<div class="profile_ctn_main">
+						<img src="/uploads/photos/{{ publi.getImgCouverture }}"/>
+						<div class="profile_info_card" onclick="hideSize(this)">
+							<h3>{{ publi.title}}</h3>
+							<p>{{ publi.contenue }}...</p>
+							{% for pub in publi.categories %}
+								<a href="{{ path('categoryadd', { name: pub.name }) }}" class="p_card_profile">#{{ pub.name}}</a>
+							{% endfor %}
+						</div>
 					</div>
 				</div>
-			</div>
-		{% endfor %}
-		
+			{% endfor %}
+		</div>
 	</div>
 {% endblock %}

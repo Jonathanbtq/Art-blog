@@ -31,7 +31,7 @@ class CategoryController extends AbstractController
         ]);
     }
 
-    #[Route('/category/{name}', name: 'category')]
+    #[Route('/category/{name}', name: 'categoryadd')]
     public function showCategory($name, CategoriesRepository $categRepo): Response
     {
         return $this->render('category/categoryshow.html.twig', [

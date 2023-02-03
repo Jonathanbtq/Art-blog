@@ -8,16 +8,15 @@
 
 .img-ctn {
     display: flex;
-    width: 15%;
+    width: 8%;
     padding: 0;
+    margin-left: 30px;
+    margin-right: 10px;
 }
 
 .profile_img_user {
     display: flex;
-    width: 10vw;
-    height: 10vw;
-    margin-left: 30px;
-    margin-right: 10px;
+    width: 100%;
 }
 
 .card_user_profile {
@@ -27,45 +26,76 @@
     margin: 0;
 }
 
+.username_profile {
+    font-size: 40px;
+    font-weight: bold;
+}
+
 .card_user_profile p {
     padding: 0;
     margin: 0 0 10px 0;
     color: white;
 }
 
-.nav_profile_ctn{
+.nav_profile_ctn {
     display: flex;
     width: 100%;
     background-color: rgb(71, 67, 67);
     margin-bottom: 10px;
 }
 
-.nav_profile_ctn ul{
+.nav_profile_ctn ul {
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
 }
 
-.nav_li_profile{
+.nav_li_profile {
     display: flex;
     margin-right: 8vw;
     color: rgb(163, 162, 162);
     font-weight: bold;
     cursor: pointer;
 }
-.publi_ctn {
+
+.a_prof_cret {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
-.card_prof_wtd{
+.a_prof_bis {
+    display: flex;
+    width: 90%;
+}
+
+.publi_ctn {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.profile_lrg {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: scroll;
+    width: 90%;
+}
+
+.profile_lrg::-webkit-scrollbar {
+    display: none;
+}
+
+.card_prof_wtd {
     display: flex;
     flex-direction: column;
     height: 15vw;
     padding-right: 5px;
 }
 
-.profile_ctn_main{
+.profile_ctn_main {
     display: flex;
     position: relative;
     flex-direction: column;
@@ -73,11 +103,11 @@
     padding-right: 5px;
 }
 
-.profile_ctn_main img{
+.profile_ctn_main img {
     height: 100%;
 }
 
-.profile_info_card{
+.profile_info_card {
     display: flex;
     position: absolute;
     flex-direction: column;
@@ -87,13 +117,13 @@
     color: white;
 }
 
-.profile_info_card p{
+.profile_info_card p {
     height: 20px;
     overflow: hidden;
     cursor: pointer;
 }
 
-.profile_info_card a{
+.profile_info_card a {
     color: white;
     text-decoration: none;
     width: 5vw;
@@ -111,11 +141,11 @@
     color: white;
 }
 
-.card_public a{
+.card_public a {
     text-decoration: none;
 }
 
-.p_card_profile{
+.p_card_profile {
     display: flex;
     justify-content: center;
     background-color: rgb(39, 33, 33);
