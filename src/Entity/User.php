@@ -37,12 +37,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $email = null;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Publications::class)]
-    private Collection $publications;
+    #[ORM\OneToMany(mappedBy: 'sender', targetEntity: Abonnements::class)]
+    private Collection $sent;
+
+    #[ORM\OneToMany(mappedBy: 'recipient', targetEntity: Abonnements::class)]
+    private Collection $received;
 
     public function __construct()
     {
-        $this->publications = new ArrayCollection();
+        $this->sent = new ArrayCollection();
+        $this->received = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -139,30 +143,60 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * @return Collection<int, Publications>
+     /**
+     * @return Collection<int, Abonnements>
      */
-    public function getPublications(): Collection
+    public function getSent(): Collection
     {
-        return $this->publications;
+        return $this->sent;
     }
 
-    public function addPublication(Publications $publication): self
+    public function addSent(Abonnements $sent): self
     {
-        if (!$this->publications->contains($publication)) {
-            $this->publications->add($publication);
-            $publication->setUser($this);
+        if (!$this->sent->contains($sent)) {
+            $this->sent->add($sent);
+            $sent->setSender($this);
         }
 
         return $this;
     }
 
-    public function removePublication(Publications $publication): self
+    public function removeSent(Abonnements $sent): self
     {
-        if ($this->publications->removeElement($publication)) {
+        if ($this->sent->removeElement($sent)) {
             // set the owning side to null (unless already changed)
-            if ($publication->getUser() === $this) {
-                $publication->setUser(null);
+            if ($sent->getSender() === $this) {
+                $sent->setSender(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Abonnements>
+     */
+    public function getReceived(): Collection
+    {
+        return $this->received;
+    }
+
+    public function addReceived(Abonnements $received): self
+    {
+        if (!$this->received->contains($received)) {
+            $this->received->add($received);
+            $received->setRecipient($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReceived(Abonnements $received): self
+    {
+        if ($this->received->removeElement($received)) {
+            // set the owning side to null (unless already changed)
+            if ($received->getRecipient() === $this) {
+                $received->setRecipient(null);
             }
         }
 

@@ -1,58 +1,74 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Page de profile
+{% block title %}{{ users[0].username }} Profile Page
 {% endblock %}
 
 {% block body %}
 	<script src="{{ asset('assets/js/profile.js') }}" defer></script>
-	<div class="main_ctn_profile">
-		<div class="img-ctn">
-			{% if users[0].getProfileImg %}
-				<img class="profile_img_user" src="/uploads/photos/{{ users[0].getProfileImg }}">
-			{% else %}
-				<p>Ce compte n'a pas de photo</p>
-			{% endif %}
-		</div>
-		<div class="card_user_profile">
-			<p class="username_profile">{{ users[0].username }}</p>
-			<div style="display: flex; flex-wrap: no-wrap;">
-				<p>{{ publiNb }}
-					Deviations |</p>
-				<p>0 Favorites</p>
+	<div class="main_prf_ctn">
+		<div class="main_ctn_profile">
+			<div class="img-ctn">
+				{% if users[0].getProfileImg %}
+					<img class="profile_img_user" src="/uploads/photos/{{ users[0].getProfileImg }}">
+				{% else %}
+					<p>Ce compte n'a pas de photo</p>
+				{% endif %}
+			</div>
+			<div class="card_user_profile">
+				<p class="username_profile">{{ users[0].username }}</p>
+				<div style="display: flex; flex-wrap: no-wrap;">
+					<p>{{ publiNb }}
+						Deviations |</p>
+					<p>0 Favorites</p>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="nav_profile_ctn">
-		<ul>
-			<li class="nav_li_profile_1">Home</li>
-			<li class="nav_li_profile_2">Gallery</li>
-			<li class="nav_li_profile_3">Favourite</li>
-			<li class="nav_li_profile_4">Posts</li>
-			<li class="nav_li_profile_5">About</li>
-		</ul>
-		{% if app.user.id != users[0].id %}
-			<div class="option_profil">
-				<button>
-					<p>Partager</p>
-				</button>
-				<button>
-					<p>Send message</p>
-				</button>
-				<button>
-					<p>Follow</p>
-				</button>
+		<div class="nav_profile_ctn">
+			<div class="nav_wdt">
+				<ul>
+					<li class="nav_li_profile_1">Home</li>
+					<li class="nav_li_profile_2">Gallery</li>
+					<li class="nav_li_profile_3">Favourite</li>
+					<li class="nav_li_profile_4">Posts</li>
+					<li class="nav_li_profile_5">About</li>
+					{% if app.user.id == users[0].id %}
+						<li class="nav_li_profile_6">Abonnement</li>
+					{% endif %}
+				</ul>
+				{% if app.user %}
+					{% if app.user.id != users[0].id %}
+						<div class="option_profil">
+							<button>
+								<p>Partager</p>
+							</button>
+							<button>
+								<p>Send message</p>
+							</button>
+							{% if abotrue %}
+								<a href="{{ path('users_desabonnement', {id: users[0].id }) }}">
+									<p>Unfollow</p>
+								</a>
+							{% else %}
+								<a href="{{ path('users_abonnement', {id: users[0].id }) }}">
+									<p>Follow</p>
+								</a>
+							{% endif %}
+						</div>
+					{% endif %}
+				{% endif %}
+			</div>
+		</div>
+		{% if app.user.id == users[0].id %}
+			<div class="a_prof_cret">
+				<div class="a_prof_bis">
+					<a class="a_frt" href="{{ path('createpubli') }}">
+						Submit
+					</a>
+				</div>
 			</div>
 		{% endif %}
 	</div>
-	{% if app.user.id == users[0].id %}
-		<div class="a_prof_cret">
-			<div class="a_prof_bis">
-				<a class="a_frt" href="{{ path('createpubli') }}">
-					Submit
-				</a>
-			</div>
-		</div>
-	{% endif %}
+	
 
 	<div class="publi_ctn">
 		<div class="profile_lrg_first">
@@ -103,6 +119,16 @@
 		<!---Cinque---->
 		<div class="profile_lrg_cinque">
 			<p>Cinque</p>
+		</div>
+
+		<!---Six---->
+		<div class="profile_lrg_six">
+			<div class="cnq_prof_sx">
+				{{ dump(users[0].sent)}}
+				{% for user in users[0].sent %}
+					{{ dump(user) }}
+				{% endfor %}
+			</div>
 		</div>
 	</div>
 {% endblock %}

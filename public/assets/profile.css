@@ -1,16 +1,22 @@
+.main_prf_ctn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
 .main_ctn_profile {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
     min-height: 15vw;
     padding-top: 80px;
+    width: 90%;
 }
 
 .img-ctn {
     display: flex;
     width: 8%;
     padding: 0;
-    margin-left: 30px;
     margin-right: 10px;
 }
 
@@ -39,20 +45,28 @@
 
 .nav_profile_ctn {
     display: flex;
+    justify-content: center;
     width: 100%;
-    background-color: rgb(71, 67, 67);
+    background-color: rgb(36, 34, 34);
     margin-bottom: 10px;
+}
+
+.nav_wdt{
+    display: flex;
+    flex-wrap: nowrap;
+    width: 90%;
 }
 
 .nav_profile_ctn ul {
     display: flex;
     flex-wrap: nowrap;
     width: 60%;
+    padding: 0;
 }
 
-.nav_li_profile_1, .nav_li_profile_2, .nav_li_profile_3, .nav_li_profile_4, .nav_li_profile_5 {
+.nav_li_profile_1, .nav_li_profile_2, .nav_li_profile_3, .nav_li_profile_4, .nav_li_profile_5, .nav_li_profile_6 {
     display: flex;
-    margin-right: 8vw;
+    margin-right: 3vw;
     color: rgb(163, 162, 162);
     font-weight: bold;
     cursor: pointer;
@@ -66,10 +80,11 @@
     width: 35%;
 }
 
-.option_profil button{
+.option_profil button, .option_profil a{
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
     width: 15%;
     height: 80%;
     border: none;
@@ -190,7 +205,7 @@
     width: 100%;
 }
 
-.profile_lrg_deux, .profile_lrg_trois, .profile_lrg_quatre, .profile_lrg_cinque{
+.profile_lrg_deux, .profile_lrg_trois, .profile_lrg_quatre, .profile_lrg_cinque, .profile_lrg_six{
     color: white;
     display: none;
 }
