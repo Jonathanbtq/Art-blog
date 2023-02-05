@@ -7,14 +7,14 @@
 	<script src="{{ asset('assets/js/profile.js') }}" defer></script>
 	<div class="main_ctn_profile">
 		<div class="img-ctn">
-			{% if app.user.getProfileImg %}
-				<img class="profile_img_user" src="/uploads/photos/{{ app.user.getProfileImg }}">
+			{% if users[0].getProfileImg %}
+				<img class="profile_img_user" src="/uploads/photos/{{ users[0].getProfileImg }}">
 			{% else %}
 				<p>Ce compte n'a pas de photo</p>
 			{% endif %}
 		</div>
 		<div class="card_user_profile">
-			<p class="username_profile">{{ app.user.username }}</p>
+			<p class="username_profile">{{ users[0].username }}</p>
 			<div style="display: flex; flex-wrap: no-wrap;">
 				<p>{{ publiNb }}
 					Deviations |</p>
@@ -24,23 +24,38 @@
 	</div>
 	<div class="nav_profile_ctn">
 		<ul>
-			<li class="nav_li_profile">Home</li>
-			<li class="nav_li_profile">Gallery</li>
-			<li class="nav_li_profile">Favourites</li>
-			<li class="nav_li_profile">Posts</li>
-			<li class="nav_li_profile">About</li>
+			<li class="nav_li_profile_1">Home</li>
+			<li class="nav_li_profile_2">Gallery</li>
+			<li class="nav_li_profile_3">Favourite</li>
+			<li class="nav_li_profile_4">Posts</li>
+			<li class="nav_li_profile_5">About</li>
 		</ul>
+		{% if app.user.id != users[0].id %}
+			<div class="option_profil">
+				<button>
+					<p>Partager</p>
+				</button>
+				<button>
+					<p>Send message</p>
+				</button>
+				<button>
+					<p>Follow</p>
+				</button>
+			</div>
+		{% endif %}
 	</div>
-	<div class="a_prof_cret">
-		<div class="a_prof_bis">
-			<a class="a_frt" href="{{ path('createpubli') }}">
-				Submit
-			</a>
+	{% if app.user.id == users[0].id %}
+		<div class="a_prof_cret">
+			<div class="a_prof_bis">
+				<a class="a_frt" href="{{ path('createpubli') }}">
+					Submit
+				</a>
+			</div>
 		</div>
-	</div>
+	{% endif %}
 
 	<div class="publi_ctn">
-		<div class="profile_lrg">
+		<div class="profile_lrg_first">
 			{% for publi in publications %}
 				<div class="card_prof_wtd">
 					<div class="profile_ctn_main">
@@ -55,6 +70,39 @@
 					</div>
 				</div>
 			{% endfor %}
+		</div>
+
+		<!---Deux---->
+		<div class="profile_lrg_deux">
+			{% for pgallery in publigallery %}
+				<div class="card_prof_wtd">
+					<div class="profile_ctn_main">
+						<img src="/uploads/photos/{{ pgallery.getImgCouverture }}"/>
+						<div class="profile_info_card" onclick="hideSize(this)">
+							<h3>{{ pgallery.title}}</h3>
+							<p>{{ pgallery.contenue }}...</p>
+							{% for pub in pgallery.categories %}
+								<a href="{{ path('categoryadd', { name: pub.name }) }}" class="p_card_profile">#{{ pub.name}}</a>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+
+		<!---Trois---->
+		<div class="profile_lrg_trois">
+			<p>Trois</p>
+		</div>
+
+		<!---Quatre---->
+		<div class="profile_lrg_quatre">
+			<p>Quatre</p>
+		</div>
+
+		<!---Cinque---->
+		<div class="profile_lrg_cinque">
+			<p>Cinque</p>
 		</div>
 	</div>
 {% endblock %}

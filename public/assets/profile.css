@@ -47,14 +47,44 @@
 .nav_profile_ctn ul {
     display: flex;
     flex-wrap: nowrap;
-    width: 100%;
+    width: 60%;
 }
 
-.nav_li_profile {
+.nav_li_profile_1, .nav_li_profile_2, .nav_li_profile_3, .nav_li_profile_4, .nav_li_profile_5 {
     display: flex;
     margin-right: 8vw;
     color: rgb(163, 162, 162);
     font-weight: bold;
+    cursor: pointer;
+}
+
+.option_profil{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: end;
+    width: 35%;
+}
+
+.option_profil button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+    height: 80%;
+    border: none;
+    margin-left: 10px;
+    background-color: black;
+    color: white;
+}
+
+.option_profil p{
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.option_profil button:hover{
+    background-color: grey;
     cursor: pointer;
 }
 
@@ -77,12 +107,18 @@
     width: 100%;
 }
 
-.profile_lrg {
+.profile_lrg_first {
     display: flex;
     flex-wrap: nowrap;
     overflow: scroll;
     width: 90%;
     -ms-overflow-style: none;
+}
+
+.profile_lrg_deux {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
 }
 
 .profile_lrg::-webkit-scrollbar {
@@ -93,7 +129,7 @@
     display: flex;
     flex-direction: column;
     height: 15vw;
-    padding-right: 5px;
+    padding: 0 5px 5px 0;
 }
 
 .profile_ctn_main {
@@ -101,7 +137,6 @@
     position: relative;
     flex-direction: column;
     height: 100%;
-    padding-right: 5px;
 }
 
 .profile_ctn_main img {
@@ -153,4 +188,9 @@
     border-radius: 5px;
     padding-bottom: 5px;
     width: 100%;
+}
+
+.profile_lrg_deux, .profile_lrg_trois, .profile_lrg_quatre, .profile_lrg_cinque{
+    color: white;
+    display: none;
 }

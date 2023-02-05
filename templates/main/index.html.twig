@@ -4,17 +4,31 @@
 {% endblock %}
 
 {% block body %}
+    <script src="{{ asset('assets/js/main.js') }}" defer></script>
 	{% if app.user %}
 		<H3>bienvenue
 			{{ app.user.username }}</h3>
 	{% endif %}
 	<div class="container_idx_main">
-		{% for publication in publications %}
-			<a class="publication_contenue" href="{{ path('viewpublication', { id: publication.id }) }}">
+		<div class="idx_wdt">
+			{% for publication in publications %}
 				<div class="publication_contenue_card">
-					<img class="idx_img mb-3 me-2" src="/uploads/photos/{{ publication.getImgCouverture }}">
+					<a class="publication_contenue" href="{{ path('viewpublication', { id: publication.id }) }}">
+						<div class="div_js_idx" onmouseover="openText(this)" onmouseleave="hideText(this)">
+							<img class="idx_img mb-3 me-2" src="/uploads/photos/{{ publication.getImgCouverture }}">
+							<div class="idx_info_pbl_hide">
+								<a href="{{ path('users_profile', { id: publication.getUser.id }) }}">
+									<h2>{{publication.getUser.username}}</h2>
+								</a>
+								<p>{{publication.contenue}}</p>
+								{% for pub in publication.categories %}
+									<a href="{{ path('categoryadd', { name: pub.name }) }}" class="p_card_idx">#{{ pub.name}}</a>
+								{% endfor %}
+							</div>
+						</div>
+					</a>
 				</div>
-			</a>
-		{% endfor %}
+			{% endfor %}
+		</div>
 	</div>
 {% endblock %}

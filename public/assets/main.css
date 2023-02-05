@@ -1,22 +1,74 @@
 .container_idx_main {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
     margin-top: 100px;
     width: 100%;
     padding: 0;
 }
 
-.publication_contenue {
+.idx_wdt{
     display: flex;
-    width: 30%;
-    margin: 0 10px 10px 0;
+    flex-wrap: wrap;
+    width: 90%;
 }
 
 .publication_contenue_card {
     display: flex;
-    width: 100%;
+    height: 15vw;
+    margin: 4px;
+}
+
+
+.div_js_idx{
+    display: flex;
+    position: relative;
+    height: 100%;
+}
+
+.publication_contenue {
+    display: flex;
+    height: 100%;
 }
 
 .idx_img {
-    width: 100%;
+    height: 100%;
+}
+
+.idx_info_pbl{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    margin: 10px;
+    width: 90%;
+}
+
+.idx_info_pbl_hide{
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    margin: 10px;
+    width: 90%;
+}
+
+.idx_info_pbl p{
+    color: white;
+    margin: 0;
+}
+
+.idx_info_pbl a{
+    color: rgb(207, 203, 203);
+    margin: 0;
+    text-decoration: none;
+}
+
+.p_card_idx{
+    color: white;
+    text-decoration: none;
+    width: 5vw;
+    text-align: center;
+    background-color: rgb(39, 33, 33);
+    border-radius: 5px;
 }

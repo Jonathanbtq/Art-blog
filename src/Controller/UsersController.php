@@ -14,10 +14,11 @@ class UsersController extends AbstractController
     #[Route('/profile/{id}', name: 'profile')]
     public function index($id, UserRepository $usersRepo, PublicationsRepository $publiRepo): Response
     {
-        $publi = count($publiRepo->findAll($id));
+        $publi = count($publiRepo->findBy(['user' => $id]));
         return $this->render('users/profile.html.twig', [
-            'users' => $usersRepo->findAll($id),
-            'publications' => $publiRepo->findBy(['user' => $this->getUser()], ['id' => 'DESC'], 5),
+            'users' => $usersRepo->findBy(['id' =>$id]),
+            'publications' => $publiRepo->findBy(['user' => $id], ['id' => 'DESC'], 5),
+            'publigallery' => $publiRepo->findBy(['user' => $id], ['id' => 'DESC'], 20),
             'publiNb' => $publi
         ]);
     }
