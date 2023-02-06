@@ -130,7 +130,16 @@
 		<!---Six---->
 		<div class="profile_lrg_six">
 			<div class="cnq_prof_sx">
-				
+				{% for r in abosend %}
+				<div class="abo_card">
+					<a href="{{ path('users_profile', { id: r.recipient.id }) }}">
+						<div class="img-ctn_abo">
+							<img class="profile_img_user" src="/uploads/photos/{{ r.recipient.getProfileImg }}">
+						</div>
+						<p>{{ r.recipient.username }}</p>
+					</a>	
+				</div>
+				{% endfor %}
 			</div>
 		</div>
 	</div>

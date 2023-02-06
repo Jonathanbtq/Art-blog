@@ -4,6 +4,39 @@
 {% endblock %}
 
 {% block body %}
-	<h3>{{ publications[0].title }}</h3>
-	<p>{{ publications[0].contenue }}</p>
+<div class="container_publi_view">
+	<div class="container_pbl_vw_ctn">
+		<div class="ctn_pblv_top">
+			<div class="img_ctn">
+				<img src="/uploads/photos/{{ publications[0].getImgCouverture }}"/>
+			</div>
+			<div class="info_user_pblv">
+				<p class="img_pub_view">img Profile</p>
+				<div class="ifo_user_rgt">
+					<div class="ifo_pub_lft">
+						<h2>{{ publications[0].title }}</h2>
+						<p>{{ publications[0].createdAt|date('d-m-Y') }}</p>
+					</div>
+					<div class="ifo_pub_rgt">
+						<p>By </p><a href="">User</a>
+						<a href="#" class="publi_view_fol">+ Follow</a>
+					</div>
+				</div>	
+			</div>
+
+			<!--Partie categories-->
+
+			{% for cat in publications[0].getCategories %}
+				<p class="cat_puibli_view">#{{ cat.name}}</p>
+			{% endfor %}
+
+			<p>{{ publications[0].contenue }}</p>
+		</div>
+		<div class="ctn_pblv_bot">
+			<div class="comm_publiv">
+				<h2>Comments</h2>
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock %}

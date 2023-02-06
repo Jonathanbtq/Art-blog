@@ -29,6 +29,8 @@ class UsersController extends AbstractController
             'abonnementuser' => $aboRepo->findBy(['sender' => $id]),
             'nbFollow' => $nbFollow,
             'abo' => $aboRepo->findAll(),
+            'abosend' => $aboRepo->findBy(['sender' => $id]),
+            'test' => $aboRepo->findByIdUser($id, $this->getUser()),
         ]);
     }
 

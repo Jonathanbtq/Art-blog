@@ -50,6 +50,16 @@ class AbonnementsRepository extends ServiceEntityRepository
        ;
    }
 
+   public function findByIdUser()
+   {
+       $qb = $this->createQueryBuilder('a')
+           ->Join('a.recipient', 'u')
+           ->andWhere('a.recipient = u.id')
+           ->addSelect('u');
+        return $qb->getQuery()
+            ->getResult();
+   }
+
 //    /**
 //     * @return Abonnements[] Returns an array of Abonnements objects
 //     */

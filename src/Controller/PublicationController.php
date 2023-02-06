@@ -31,7 +31,7 @@ class PublicationController extends AbstractController
         
         return $this->render('publication/show.html.twig', [
             'controller_name' => 'PublicationController',
-            'publications' => $publicRepo->findAll($id),
+            'publications' => $publicRepo->findBy(['id' => $id]),
         ]);
     }
 

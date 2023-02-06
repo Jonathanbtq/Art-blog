@@ -40,7 +40,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'sender', targetEntity: Abonnements::class)]
     private Collection $sent;
 
-    #[ORM\OneToMany(mappedBy: 'recipient', targetEntity: Abonnements::class)]
+    #[ORM\OneToMany(mappedBy: 'recipient', targetEntity: Abonnements::class, orphanRemoval: true)]
     private Collection $received;
 
     public function __construct()
@@ -143,7 +143,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-     /**
+    /**
      * @return Collection<int, Abonnements>
      */
     public function getSent(): Collection

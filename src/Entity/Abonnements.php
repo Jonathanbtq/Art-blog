@@ -14,9 +14,11 @@ class Abonnements
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'sent')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?User $sender = null;
 
     #[ORM\ManyToOne(inversedBy: 'received')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?User $recipient = null;
 
     public function getId(): ?int
