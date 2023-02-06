@@ -19,13 +19,16 @@ class UsersController extends AbstractController
     public function index($id, UserRepository $usersRepo, AbonnementsRepository $aboRepo, PublicationsRepository $publiRepo): Response
     {
         $publi = count($publiRepo->findBy(['user' => $id]));
+        $nbFollow = count($aboRepo->findBy(['recipient' => $id]));
         return $this->render('users/profile.html.twig', [
             'users' => $usersRepo->findBy(['id' => $id]),
             'publications' => $publiRepo->findBy(['user' => $id], ['id' => 'DESC'], 5),
             'publigallery' => $publiRepo->findBy(['user' => $id], ['id' => 'DESC'], 20),
             'publiNb' => $publi,
             'abotrue' => $aboRepo->findOneById($id, $this->getUser()),
-            'abonnementuser' => $aboRepo->findBy(['sender' => $id])
+            'abonnementuser' => $aboRepo->findBy(['sender' => $id]),
+            'nbFollow' => $nbFollow,
+            'abo' => $aboRepo->findAll(),
         ]);
     }
 

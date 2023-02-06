@@ -18,8 +18,14 @@
 				<p class="username_profile">{{ users[0].username }}</p>
 				<div style="display: flex; flex-wrap: no-wrap;">
 					<p>{{ publiNb }}
-						Deviations |</p>
-					<p>0 Favorites</p>
+						{% if publiNb > 1 %}
+							<p> Publications |</p>
+						{% else %}
+							<p> Publication |</p>
+						{% endif %}
+					</p>
+					<p>0 Favorites |</p>
+					<p>{{ nbFollow }} followers</p>
 				</div>
 			</div>
 		</div>
