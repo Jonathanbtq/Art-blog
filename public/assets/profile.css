@@ -1,9 +1,10 @@
-.main_prf_ctn{
+.main_prf_ctn {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
 }
+
 .main_ctn_profile {
     display: flex;
     flex-wrap: nowrap;
@@ -51,7 +52,7 @@
     margin-bottom: 10px;
 }
 
-.nav_wdt{
+.nav_wdt {
     display: flex;
     flex-wrap: nowrap;
     width: 90%;
@@ -64,7 +65,12 @@
     padding: 0;
 }
 
-.nav_li_profile_1, .nav_li_profile_2, .nav_li_profile_3, .nav_li_profile_4, .nav_li_profile_5, .nav_li_profile_6 {
+.nav_li_profile_1,
+.nav_li_profile_2,
+.nav_li_profile_3,
+.nav_li_profile_4,
+.nav_li_profile_5,
+.nav_li_profile_6 {
     display: flex;
     margin-right: 3vw;
     color: rgb(163, 162, 162);
@@ -72,7 +78,7 @@
     cursor: pointer;
 }
 
-.option_profil{
+.option_profil {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
@@ -80,7 +86,8 @@
     width: 35%;
 }
 
-.option_profil button, .option_profil a{
+.option_profil button,
+.option_profil a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -93,12 +100,12 @@
     color: white;
 }
 
-.option_profil p{
+.option_profil p {
     font-weight: bold;
     font-size: 12px;
 }
 
-.option_profil button:hover{
+.option_profil button:hover {
     background-color: grey;
     cursor: pointer;
 }
@@ -128,6 +135,7 @@
     overflow: scroll;
     width: 90%;
     -ms-overflow-style: none;
+    padding: 0;
 }
 
 .profile_lrg_deux {
@@ -136,7 +144,7 @@
     width: 90%;
 }
 
-.profile_lrg::-webkit-scrollbar {
+.profile_lrg_first::-webkit-scrollbar {
     display: none;
 }
 
@@ -205,21 +213,26 @@
     width: 100%;
 }
 
-.profile_lrg_deux, .profile_lrg_trois, .profile_lrg_quatre, .profile_lrg_cinque, .profile_lrg_six{
+.profile_lrg_deux,
+.profile_lrg_trois,
+.profile_lrg_quatre,
+.profile_lrg_cinque,
+.profile_lrg_six {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     color: white;
     display: none;
     width: 100%;
 }
 
-.cnq_prof_sx{
+.cnq_prof_sx {
     display: flex;
     flex-wrap: wrap;
     width: 90%;
 }
 
-.abo_card{
+.abo_card {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -231,24 +244,25 @@
     border-radius: 5px;
 }
 
-.abo_card a{
+.abo_card a {
     height: 100%;
     width: 100%;
     text-decoration: none;
 }
 
-.abo_card p{
+.abo_card p {
     margin: 5px 0 0 0;
     font-size: 20px;
     font-weight: bold;
     color: white;
 }
 
-.img-ctn_abo{
+.img-ctn_abo {
     display: flex;
     height: 80%;
 }
-.img-ctn_abo img{
+
+.img-ctn_abo img {
     display: flex;
     height: 100%;
     border-radius: 5px;

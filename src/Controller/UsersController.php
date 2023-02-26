@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Abonnements;
 use App\Form\AbonnementType;
 use App\Repository\AbonnementsRepository;
+use App\Repository\FavorisRepository;
 use App\Repository\UserRepository;
 use App\Repository\PublicationsRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,8 +17,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class UsersController extends AbstractController
 {
     #[Route('/profile/{id}', name: 'profile')]
-    public function index($id, UserRepository $usersRepo, AbonnementsRepository $aboRepo, PublicationsRepository $publiRepo): Response
+    public function index($id, UserRepository $usersRepo, AbonnementsRepository $aboRepo, PublicationsRepository $publiRepo, FavorisRepository $favorisRepo): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
         $publi = count($publiRepo->findBy(['user' => $id]));
         $nbFollow = count($aboRepo->findBy(['recipient' => $id]));
         return $this->render('users/profile.html.twig', [
@@ -31,6 +34,11 @@ class UsersController extends AbstractController
             'abo' => $aboRepo->findAll(),
             'abosend' => $aboRepo->findBy(['sender' => $id]),
             'test' => $aboRepo->findByIdUser($id, $this->getUser()),
+
+            // Page Trois Favorites
+            'favorite' => $favorisRepo->findBy(['user' => $id]),
+            'favoritecount' => count($favorisRepo->findBy(['user' => $id])),
+            'finduser' => $favorisRepo->findByIdUser()
         ]);
     }
 
@@ -40,7 +48,7 @@ class UsersController extends AbstractController
         $abonnement = new Abonnements();
         $abonnement->setSender($this->getUser());
         $abonnement->setRecipient($usersRepo->findOneById($id));
- 
+
         $aboRepo->save($abonnement, true);
 
         return $this->redirectToRoute('users_profile', ['id' => $id]);
