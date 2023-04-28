@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création de Posts{% endblock %}
+
+{% block body %}
+    <div class="main_create_publi">
+		<div class="form_crt_plb">
+			{{ form_start(formPost) }}
+			<div class="create_pun_title">
+				<label>Contenue</label>
+				{{ form_row(formPost.text) }}
+			</div>
+            <button type="submit">Créer</button>
+			{{ form_end(formPost) }}
+		</div>
+		
+	</div>
+{% endblock %}

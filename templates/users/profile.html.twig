@@ -144,7 +144,22 @@
 
 		<!---Quatre---->
 		<div class="profile_lrg_quatre">
-			<p>Quatre</p>
+			<div class="prf_qtr_wtn">
+				<a href="{{ path('profile_post_create')}}">Créer un post</a>
+				<div class="post_profile">
+					{% for post in posts %}
+						<div class="post_profile_ctn">
+							<div class="profile_post_ctn">
+								<img class="post_img_user" src="/uploads/photos/{{ post.user.getProfileImg }}">
+								<a href="{{ path('users_profile', { id: post.user.getId}) }}">{{ post.user.getUsername }}</a>
+							</div>
+							<p>{{ post.text }}</p>
+							{# <p>{{ post.date_upload.getDate }}</p> #}
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+			
 		</div>
 
 		<!---Cinque---->

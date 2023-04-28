@@ -6,6 +6,7 @@ use App\Entity\Abonnements;
 use App\Form\AbonnementType;
 use App\Repository\AbonnementsRepository;
 use App\Repository\FavorisRepository;
+use App\Repository\PostsRepository;
 use App\Repository\UserRepository;
 use App\Repository\PublicationsRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,7 +18,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class UsersController extends AbstractController
 {
     #[Route('/profile/{id}', name: 'profile')]
-    public function index($id, UserRepository $usersRepo, AbonnementsRepository $aboRepo, PublicationsRepository $publiRepo, FavorisRepository $favorisRepo): Response
+    public function index($id, UserRepository $usersRepo, AbonnementsRepository $aboRepo, PublicationsRepository $publiRepo, FavorisRepository $favorisRepo, PostsRepository $postRepo): Response
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
 
@@ -27,6 +28,7 @@ class UsersController extends AbstractController
             'users' => $usersRepo->findBy(['id' => $id]),
             'publications' => $publiRepo->findBy(['user' => $id], ['id' => 'DESC'], 5),
             'publigallery' => $publiRepo->findBy(['user' => $id], ['id' => 'DESC'], 20),
+            'posts' => $postRepo->findBy(['user' => $id], ['id' => 'DESC'], 20),
             'publiNb' => $publi,
             'abotrue' => $aboRepo->findOneById($id, $this->getUser()),
             'abonnementuser' => $aboRepo->findBy(['sender' => $id]),
