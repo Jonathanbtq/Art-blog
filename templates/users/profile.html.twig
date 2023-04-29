@@ -145,9 +145,14 @@
 		<!---Quatre---->
 		<div class="profile_lrg_quatre">
 			<div class="prf_qtr_wtn">
-				<a href="{{ path('profile_post_create')}}">Créer un post</a>
+				{% if app.user.id == users[0].id %}
+					<a href="{{ path('profile_post_create')}}">Créer un post</a>
+				{% endif %}
 				<div class="post_profile">
 					{% for post in posts %}
+						{% if post is defined %}
+						<p>This user dont have Posts</p>
+						{% endif %}
 						<div class="post_profile_ctn">
 							<div class="profile_post_ctn">
 								<img class="post_img_user" src="/uploads/photos/{{ post.user.getProfileImg }}">
