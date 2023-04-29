@@ -4,12 +4,22 @@
 {% endblock %}
 
 {% block body %}
-    <script src="{{ asset('assets/js/main.js') }}" defer></script>
+	<script src="{{ asset('assets/js/main.js') }}" defer></script>
 	{% if app.user %}
 		<H3>bienvenue
 			{{ app.user.username }}</h3>
 	{% endif %}
 	<div class="container_idx_main">
+		<div class="nav_main_post_publi">
+			<ul>
+				<li class="nav_maiin_post_li">
+					<a href>Publictions</a>
+				</li>
+				<li class="nav_maiin_post_li">
+					<a href>Posts</a>
+				</li>
+			</ul>
+		</div>
 		<div class="idx_wdt">
 			{% for publication in publications %}
 				<div class="publication_contenue_card">
