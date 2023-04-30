@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AboutFormTypeController!{% endblock %}
+
+{% block body %}
+<div class="form_ctn_about">
+    {{ form_start(form_about) }}
+    
+    {{ form_end(form_about) }}
+    <button type="submit">Créer</button>
+</div>
+{% endblock %}

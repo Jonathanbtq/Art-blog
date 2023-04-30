@@ -149,18 +149,22 @@
 					<a href="{{ path('profile_post_create')}}">Créer un post</a>
 				{% endif %}
 				<div class="post_profile">
+					{% if posts is defined and posts == 'Cette utilisateur n\'a pas creér de Posts' %}
+						{{ posts }}
+					{% endif %}
 					{% for post in posts %}
-						{% if post is defined %}
-						<p>This user dont have Posts</p>
-						{% endif %}
-						<div class="post_profile_ctn">
-							<div class="profile_post_ctn">
-								<img class="post_img_user" src="/uploads/photos/{{ post.user.getProfileImg }}">
-								<a href="{{ path('users_profile', { id: post.user.getId}) }}">{{ post.user.getUsername }}</a>
+						{% if post[0] is defined %}
+							{{ post }}
+						{% else %}
+							<div class="post_profile_ctn">
+								<div class="profile_post_ctn">
+									<img class="post_img_user" src="/uploads/photos/{{ post.user.getProfileImg }}">
+									<a href="{{ path('users_profile', { id: post.user.getId}) }}">{{ post.user.getUsername }}</a>
+								</div>
+								<p>{{ post.text }}</p>
+								{# <p>{{ post.date_upload.getDate }}</p> #}
 							</div>
-							<p>{{ post.text }}</p>
-							{# <p>{{ post.date_upload.getDate }}</p> #}
-						</div>
+						{% endif %}
 					{% endfor %}
 				</div>
 			</div>
@@ -169,7 +173,7 @@
 
 		<!---Cinque---->
 		<div class="profile_lrg_cinque">
-			<p>Cinque</p>
+			<a href="{{ path('app_about_form_type')}}">Ajouter des éléments a about</a>
 		</div>
 
 		<!---Six---->

@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Abonnements;
 use App\Form\AbonnementType;
 use App\Repository\AbonnementsRepository;
+use App\Repository\AboutRepository;
 use App\Repository\FavorisRepository;
 use App\Repository\PostsRepository;
 use App\Repository\UserRepository;
@@ -18,17 +19,24 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class UsersController extends AbstractController
 {
     #[Route('/profile/{id}', name: 'profile')]
-    public function index($id, UserRepository $usersRepo, AbonnementsRepository $aboRepo, PublicationsRepository $publiRepo, FavorisRepository $favorisRepo, PostsRepository $postRepo): Response
+    public function index($id, UserRepository $usersRepo, AbonnementsRepository $aboRepo, PublicationsRepository $publiRepo, FavorisRepository $favorisRepo, PostsRepository $postRepo, AboutRepository $aboutRepo): Response
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
 
         $publi = count($publiRepo->findBy(['user' => $id]));
         $nbFollow = count($aboRepo->findBy(['recipient' => $id]));
+
+        $posts = $postRepo->findBy(['user' => $id], ['id' => 'DESC'], 20);
+        if(count($posts) >= 1){
+            $posts = $posts;
+        }else{
+            $posts = 'Cette utilisateur n\'a pas creér de Posts';
+        }
         return $this->render('users/profile.html.twig', [
             'users' => $usersRepo->findBy(['id' => $id]),
             'publications' => $publiRepo->findBy(['user' => $id], ['id' => 'DESC'], 5),
             'publigallery' => $publiRepo->findBy(['user' => $id], ['id' => 'DESC'], 20),
-            'posts' => $postRepo->findBy(['user' => $id], ['id' => 'DESC'], 20),
+            'posts' => $posts,
             'publiNb' => $publi,
             'abotrue' => $aboRepo->findOneById($id, $this->getUser()),
             'abonnementuser' => $aboRepo->findBy(['sender' => $id]),
@@ -36,6 +44,9 @@ class UsersController extends AbstractController
             'abo' => $aboRepo->findAll(),
             'abosend' => $aboRepo->findBy(['sender' => $id]),
             'test' => $aboRepo->findByIdUser($id, $this->getUser()),
+
+            // About section
+            // 'About' => $aboutRepo->findBy(['user' => $id]),
 
             // Page Trois Favorites
             'favorite' => $favorisRepo->findBy(['user' => $id]),
