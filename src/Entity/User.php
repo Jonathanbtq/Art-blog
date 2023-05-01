@@ -51,7 +51,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private Collection $posts;
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $birthday_date = null;
+    public ?\DateTimeInterface $birthday_date = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $first_connect = null;
 
     public function __construct()
     {
@@ -283,6 +286,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setBirthdayDate(?\DateTimeInterface $birthday_date): self
     {
         $this->birthday_date = $birthday_date;
+
+        return $this;
+    }
+
+    public function getFirstConnect(): ?\DateTimeInterface
+    {
+        return $this->first_connect;
+    }
+
+    public function setFirstConnect(\DateTimeInterface $first_connect): self
+    {
+        $this->first_connect = $first_connect;
 
         return $this;
     }

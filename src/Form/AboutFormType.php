@@ -14,14 +14,8 @@ class AboutFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('pseudo', TextType::class, [
-                'label' => 'Pseudo'
-            ])
             ->add('domaine_list', TextType::class, [
                 'label' => 'Domaine'
-            ])
-            ->add('birthday_date', DateType::class, [
-                'label' => 'Date de naissance'
             ])
             ->add('location')
             ->add('description', TextType::class, [

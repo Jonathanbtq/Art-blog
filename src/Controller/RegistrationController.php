@@ -35,6 +35,7 @@ class RegistrationController extends AbstractController
                 }
                 $user->setProfileImg($filename);
             }
+            $user->setFirstConnect(new \DateTime('now'));
             // encode the plain password
             $user->setRoles(["ROLE_USERS"]);
             $user->setPassword(

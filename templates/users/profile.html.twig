@@ -86,22 +86,23 @@
 		<div class="profile_lrg_first">
 			{% for publi in publications %}
 				<div class="card_prof_wtd">
-					<div class="profile_ctn_main">
-						<img src="/uploads/photos/{{ publi.getImgCouverture }}"/>
-						<div class="profile_info_card" onclick="hideSize(this)">
-							<h3>{{ publi.title}}</h3>
-							<p>{{ publi.contenue }}...</p>
-							<div class="cat_fav_prof">
-								{% for pub in publi.categories %}
-									<a href="{{ path('categoryadd', { name: pub.name }) }}" class="p_card_profile">#{{ pub.name}}</a>
-									{% if app.user.id != users[0].id %}
-										<a href="{{ path('favorisclick', {id: publi.id} ) }}">Like</a>
-									{% endif %}
-								{% endfor %}
+					<a class="publication_contenue" href="{{ path('viewpublication', { id: publi.getId }) }}">
+						<div class="profile_ctn_main">
+							<img src="/uploads/photos/{{ publi.getImgCouverture }}"/>
+							<div class="profile_info_card" onclick="hideSize(this)">
+								<h3>{{ publi.title}}</h3>
+								<p>{{ publi.contenue }}...</p>
+								<div class="cat_fav_prof">
+									{% for pub in publi.categories %}
+										<a href="{{ path('categoryadd', { name: pub.name }) }}" class="p_card_profile">#{{ pub.name}}</a>
+										{% if app.user.id != users[0].id %}
+											<a href="{{ path('favorisclick', {id: publi.id} ) }}">Like</a>
+										{% endif %}
+									{% endfor %}
+								</div>
 							</div>
-
 						</div>
-					</div>
+					</a>
 				</div>
 			{% endfor %}
 		</div>
@@ -128,16 +129,18 @@
 		<div class="profile_lrg_trois">
 			{% for favoris in favorite %}
 				<div class="card_prof_wtd">
-					<div class="profile_ctn_main">
-						<img src="/uploads/photos/{{ favoris.publication.getImgCouverture }}"/>
-						<div class="profile_info_card" onclick="hideSize(this)">
-							<h3>{{ favoris.publication.user.username}}</h3>
-							<p>{{ favoris.publication.title }}...</p>
-							{% for pub in favoris.publication.categories %}
-								<a href="{{ path('categoryadd', { name: pub.name }) }}" class="p_card_profile">#{{ pub.name}}</a>
-							{% endfor %}
+					<a class="publication_contenue" href="{{ path('viewpublication', { id: favoris.publication.getId }) }}">
+						<div class="profile_ctn_main">
+							<img src="/uploads/photos/{{ favoris.publication.getImgCouverture }}"/>
+							<div class="profile_info_card" onclick="hideSize(this)">
+								<h3>{{ favoris.publication.user.username}}</h3>
+								<p>{{ favoris.publication.title }}...</p>
+								{% for pub in favoris.publication.categories %}
+									<a href="{{ path('categoryadd', { name: pub.name }) }}" class="p_card_profile">#{{ pub.name}}</a>
+								{% endfor %}
+							</div>
 						</div>
-					</div>
+					</a>
 				</div>
 			{% endfor %}
 		</div>
@@ -174,6 +177,7 @@
 		<!---Cinque---->
 		<div class="profile_lrg_cinque">
 			<a href="{{ path('app_about_form_type')}}">Ajouter des éléments a about</a>
+			<!--Element de about-->
 		</div>
 
 		<!---Six---->

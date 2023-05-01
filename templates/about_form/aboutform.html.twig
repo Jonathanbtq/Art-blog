@@ -3,10 +3,11 @@
 {% block title %}Hello AboutFormTypeController!{% endblock %}
 
 {% block body %}
-<div class="form_ctn_about">
-    {{ form_start(form_about) }}
-    
-    {{ form_end(form_about) }}
-    <button type="submit">Créer</button>
-</div>
+    <div class="main_create_publi">
+		<div class="form_crt_plb">
+            {{ form_start(form_about) }}
+            <button type="submit">Créer</button>
+            {{ form_end(form_about) }}
+        </div>
+    </div>
 {% endblock %}

@@ -18,15 +18,22 @@ class AboutController extends AbstractController
         $about = new About();
         $form = $this->createForm(AboutFormType::class, $about);
         $form->handleRequest($request);
-        
-        $user = $this->getUser();
+
         if($form->isSubmitted() && $form->isValid()){
-            $about->setBirthdayDate($user['birthday_date']);
+            $user = $this->getUser();
+            
+            $userbirth = $user->birthday_date;
+            if($userbirth){
+                $about->setBirthdayDate($userbirth);
+            }
+            $about->setBirthdayBlog($user->getFirstConnect());
+            $aboutRepo->save($about, true);
+            return $this->redirectToRoute('main');
         }
 
         return $this->render('about_form/aboutform.html.twig', [
             'controller_name' => 'AboutController',
-            'form_about' => $form->createView()
+            'form_about' => $form->createView(),
         ]);
     }
 }
